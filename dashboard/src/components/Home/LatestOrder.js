@@ -18,11 +18,13 @@ const LatestOrder = (props) => {
           <table className="table">
             <tbody>
               {orders.slice(0, 5).map((order) => (
+                // eslint-disable-next-line no-sequences
+                console.log(order),
                 <tr key={order._id}>
                   <td>
-                    <b>{order.user.name}</b>
+                    <b>{order._v}</b>
                   </td>
-                  <td>{order.user.email}</td>
+                  <td>{order.shippingAddress.Address || order.user.name}</td>
                   <td>${order.totalPrice}</td>
                   <td>
                     {order.isPaid ? (
